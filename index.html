@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex</title>
+    <script src="pokemon.js" defer></script>
   </head>
   <body>
     <main class="main">
@@ -36,7 +37,7 @@
             <div class="sort-wrapper">
               <div class="sort-wrap">
                 <img
-                  src="/assets/sorting.svg"
+                  src="assets/sorting.svg"
                   alt="sorting"
                   class="sort-icon"
                   id="sort-icon"
@@ -45,19 +46,20 @@
               <div class="filter-wrapper">
                 <p class="body2-fonts">Sort by:</p>
                 <div class="filter-wrap">
+                  <!-- Add label for sorting by number -->
                   <div>
-                    <input
-                      type="radio"
-                      id="number"
-                      name="filters"
-                      value="number"
-                      checked
-                    />
+                    <input type="radio" id="number" name="filters" value="number" />
                     <label for="number" class="body3-fonts">Number</label>
                   </div>
+                  <!-- Add label for sorting by name -->
                   <div>
                     <input type="radio" id="name" name="filters" value="name" />
                     <label for="name" class="body3-fonts">Name</label>
+                  </div>
+                  <!-- Add label for no filter -->
+                  <div>
+                    <input type="radio" id="nofilter" name="filters" value="nofilter" checked />
+                    <label for="nofilter" class="body3-fonts">No Filter</label>
                   </div>
                 </div>
               </div>
