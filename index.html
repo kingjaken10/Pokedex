@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex</title>
+    <link rel="stylesheet" href="style.css"/>
     <script src="pokemon.js" defer></script>
+    <script src="search.js" defer></script>
+    <script src="darkmode.js" defer></script>
   </head>
   <body>
     <main class="main">
@@ -23,7 +26,7 @@
               />
               <input
                 type="text"
-                class="search-input body3-fonts"
+                class="search-input body1-fonts"
                 placeholder="Search"
                 id="search-input"
               />
@@ -34,36 +37,20 @@
                 id="search-close-icon"
               />
             </div>
-            <div class="sort-wrapper">
-              <div class="sort-wrap">
-                <img
-                  src="assets/sorting.svg"
-                  alt="sorting"
-                  class="sort-icon"
-                  id="sort-icon"
-                />
-              </div>
-              <div class="filter-wrapper">
-                <p class="body2-fonts">Sort by:</p>
-                <div class="filter-wrap">
-                  <!-- Add label for sorting by number -->
-                  <div>
-                    <input type="radio" id="number" name="filters" value="number" />
-                    <label for="number" class="body3-fonts">Number</label>
-                  </div>
-                  <!-- Add label for sorting by name -->
-                  <div>
-                    <input type="radio" id="name" name="filters" value="name" />
-                    <label for="name" class="body3-fonts">Name</label>
-                  </div>
-                  <!-- Add label for no filter -->
-                  <div>
-                    <input type="radio" id="nofilter" name="filters" value="nofilter" checked />
-                    <label for="nofilter" class="body3-fonts">No Filter</label>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <button class="theme-switch">
+              <img
+                  src="assets/dark-mode.svg"
+                  alt="dark-mode"
+                  class="dark-mode-icon"
+                  id="dark-mode-icon"
+              />
+              <img
+                  src="assets/light-mode.svg"
+                  alt="light-mode"
+                  class="light-mode-icon"
+                  id="light-mode-icon"
+              />
+            </button>
           </div>
         </div>
       </header>
