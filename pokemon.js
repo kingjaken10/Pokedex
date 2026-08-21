@@ -22,15 +22,16 @@ fetch(`https://pokeapi.co/api/v2/pokemon?limit=${MAX_POKEMON}`) // fetch list of
 // fetch Pokémon data before redirecting to detail page after click
 async function fetchPokemonDataBeforeRedirect(id) {
   try {
+    // fetch Pokémon data from PokéAPI using Pokémon ID before redirecting to detail page
     const [pokemon, pokemonSpecies] = await Promise.all([
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then((response) => response.json()),
       fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
-      .then((response) => response.json()),
+      .then((response) => response.json())
     ]);
-    return true;
+    return true; // return true if Pokémon data is successfully fetched before redirect
   } catch (error) {
-    console.error("Failed to fetch Pokémon data before redirect");
+    console.error("Failed to fetch Pokémon data before redirect");  // log error to console if there is an error while fetching Pokémon data before redirect
   }
 }
 
@@ -51,7 +52,7 @@ function displayPokemons(pokemon) {
       <img src="https://raw.githubusercontent.com/pokeapi/sprites/master/sprites/pokemon/other/dream-world/${pokemonID}.svg" alt="${pokemon.name}"/>
     </div>
     <div class="name-wrap">
-      <p class="body3-fonts">#${pokemon.name}</p>
+      <p class="body1-fonts">${pokemon.name}</p>
     </div>
     `;
 
@@ -70,30 +71,30 @@ function displayPokemons(pokemon) {
 // add event listener to search input field
 searchInput.addEventListener("keyup", handleSearch);
 
+// check if string is a number
+function isNumber(string){
+  return (string.trim() !== "") && !isNaN(Number(string));
+}
+
 // handle search input in search field
 function handleSearch(){
   const searchTerm = searchInput.value.toLowerCase(); // convert search term to lowercase
   let filteredPokemons;
 
-  // check which filter is selected and filter Pokémon accordingly
   // filter Pokémon by number
-  if(numberFilter.checked){
+  if(isNumber(searchTerm)){
     // create filtered array of Pokémon whose numbers start with search term
     filteredPokemons = allPokemon.filter((pokemon) => {
       const pokemonID = pokemon.url.split("/")[6]; // split URL string using '/' as separator to access item after 6th '/' (pokemon number)
       return pokemonID.startsWith(searchTerm)   // determine if Pokémon number starts with search term
     });
-  } 
+  }
   // filter Pokémon by name
-  else if(nameFilter.checked){
+  else{
     // create filtered array of Pokémon whose names start with search term
     filteredPokemons = allPokemon.filter((pokemon) => {
       return pokemon.name.toLowerCase().startsWith(searchTerm); // determine if Pokémon name starts with search term
     });
-  }
-  // no filter applied 
-  else{
-    filteredPokemons = allPokemon;  // no filter is selected, show all Pokémon
   }
 
   displayPokemons(filteredPokemons); // display filtered Pokémon
