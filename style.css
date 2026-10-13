@@ -1,0 +1,700 @@
+:root {
+  --identity-primary: #1a8cc2;
+  --identity-primary-darker: #176f98;
+  --grayscale-dark: #000000;
+  --grayscale-medium: #666666;
+  --grayscale-light: #e0e0e0;
+  --grayscale-background: #efefef;
+  --grayscale-white: #ffffff;
+
+  --headline-font-size: 28px;
+  --body1-font-size: 14px;
+  --body2-font-size: 12px;
+  --body3-font-size: 10px;
+  --subtitle1-font-size: 14px;
+  --subtitle2-font-size: 12px;
+  --subtitle3-font-size: 10px;
+  --caption-font-size: 8px;
+
+  --headline-line-height: 32px;
+  --common-line-height: 16px;
+  --caption-line-height: 12px;
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  --drop-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  --drop-shadow-hover: 0px 3px 12px 3px rgba(0, 0, 0, 0.2);
+  --drop-shadow-inner: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+}
+
+.darkmode{
+  --identity-primary: #0c425b;
+  --identity-primary-darker: #073144;
+  --grayscale-dark: #ffffff;
+  --grayscale-medium: #313030;
+  --grayscale-light: #e0e0e0;
+  --grayscale-background: #4d4d4d;
+  --grayscale-white: #313131;
+}
+
+h2,
+h3,
+h4,
+.body1-fonts,
+.body2-fonts,
+.body3-fonts {
+  line-height: var(--common-line-height);
+}
+
+h1 {
+  font-size: var(--headline-font-size);
+  line-height: var(--headline-line-height);
+}
+
+h2 {
+  font-size: var(--subtitle1-font-size);
+}
+
+h3 {
+  font-size: var(--subtitle2-font-size);
+}
+
+h4 {
+  font-size: var(--subtitle3-font-size);
+}
+
+.body1-fonts {
+  font-size: var(--body1-font-size);
+}
+
+.body2-fonts {
+  font-size: var(--body2-font-size);
+}
+
+.body3-fonts {
+  font-size: var(--body3-font-size);
+}
+
+.caption-fonts {
+  font-size: var(--caption-font-size);
+  line-height: var(--caption-line-height);
+}
+
+input:focus-visible {
+  outline: 0;
+}
+
+.featured-img a.arrow.hidden {
+  display: none;
+}
+
+/* window setup */
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: "Lucida Console", monospace;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* main window setup */
+.main {
+  margin: 0;
+  background-color: var(--identity-primary);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* top header width */
+.header-home {
+  width: 90%;
+}
+
+/* top container width */
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+/* Pokédex logo */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+/* Pokédex logo font customization (light-mode) */
+.logo-wrapper > h1 {
+  color: var(--grayscale-white);
+}
+
+/* Pokédex logo font customization (dark-mode) */
+.darkmode .logo-wrapper > h1 {
+  color: var(--grayscale-dark);
+}
+
+/* Pokéball logo image */
+.logo-wrapper > img {
+  margin-right: 10px;
+  width: 37px;
+}
+
+/* search bar setup */
+.search-wrapper,
+.search-wrap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+}
+
+/* search bar customization */
+.search-wrap {
+  position: relative;
+  background-color: var(--grayscale-white);
+  border-radius: 20px;
+  box-shadow: var(--drop-shadow-inner);
+  width: 300px;
+  height: 40px;
+  gap: 10px;
+}
+
+/* search icon customization */
+.search-icon {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+}
+
+/* search svg elements customization */
+.search-wrap svg path {
+  fill: var(--identity-primary);
+}
+
+/* search input box customization (light-mode) */
+.search-wrap > input {
+  width: 80%;
+  border: none;
+  font-family: inherit;
+}
+
+/* search input box customization (dark-mode) */
+.darkmode .search-wrap > input{
+  background-color: var(--grayscale-white);
+  -webkit-text-fill-color: var(--grayscale-dark);
+  caret-color: var(--grayscale-dark);
+}
+
+/* dark/light mode button */
+.main .theme-switch{
+  background-color: var(--identity-primary-darker);
+  border: #000000;
+  border-radius: 100%;
+  min-width: 3rem;
+  min-height: 3rem;
+  box-shadow: var(--drop-shadow-inner);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+/* dark-mode button dimensions */
+.dark-mode-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* light-mode button dimensions */
+.light-mode-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* in light-mode; hide light-mode icon */
+.theme-switch img:last-child{
+  display: none;
+}
+
+/* in dark-mode; hide dark-mode icon */
+.darkmode .theme-switch img:first-child{
+  display: none;
+}
+
+/* in dark-mode; show light-mode icon */
+.darkmode .theme-switch img:last-child{
+  display: block;
+}
+
+/* search close icon customization */
+.search-close-icon {
+  position: absolute;
+  right: 1rem;
+  display: none;
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+}
+
+/* search close icon visibility */
+.search-close-icon-visible {
+  display: block;
+}
+
+/* Pokémon display section setup */
+.pokemon-list {
+  background-color: var(--grayscale-white);
+  box-shadow: var(--drop-shadow-inner);
+  border-radius: 0.75rem;
+  min-height: calc(85.5% - 1rem);
+  width: calc(100% - 2rem);
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+/* Pokémon display container setup */
+.list-wrapper {
+  margin: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3.5rem 1rem;
+  padding-bottom: 32px;
+}
+
+/* Pokémon list box */
+.list-item {
+  border-radius: 8px;
+  box-shadow: var(--drop-shadow);
+  background-color: var(--grayscale-white);
+  width: 8.85rem;
+  height: 8.85rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Pokémon id (light-mode) */
+.list-item .number-wrap {
+  min-height: 16px;
+  text-align: right;
+  padding: 0px 8px;
+  color: var(--grayscale-medium);
+}
+
+/* Pokémon id (dark-mode) */
+.darkmode .list-item .number-wrap {
+  color: var(--grayscale-dark);
+}
+
+/* Pokémon name */
+.list-item .name-wrap {
+  border-radius: 8px;
+  box-shadow: var(--drop-shadow);
+  background-color: var(--grayscale-background);
+  padding: 20px 8px 5px 8px;
+  color: var(--grayscale-dark);
+  margin-top: -25px;
+}
+
+/* capitalize Pokémon name */
+.list-item .name-wrap p {
+  text-transform: capitalize;
+}
+
+/* Pokémon image frame dimension setup */
+.list-item .img-wrap {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+}
+
+/* Pokémon image fitting */
+.list-item .img-wrap img {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------------------------------- */
+/* DETAILS PAGE */
+/* ---------------------------------- */
+
+/* Pokémon header outer setup*/
+.detail-main .header {
+  width: 60%;
+  padding: 10px 20px 10px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pokémon header inner setup */
+.detail-main .header-wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* back button */
+.detail-main .back-btn-wrap{
+  position: absolute;
+  top: 25px;
+  left: 25px;
+}
+
+/* Pokémon name */
+.detail-main .name-wrap{
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Pokémon id */
+.detail-main .pokemon-id-wrap {
+  margin: -10px auto;
+  text-align: center;
+}
+
+/* back button, Pokémon name, Pokémon id font customization */
+.detail-main .back-btn-wrap path,
+.detail-main .header-wrapper p,
+.detail-main .header-wrapper h1 {
+  fill: var(--grayscale-white);
+  color: var(--grayscale-white);
+}
+
+/* back button color (dark-mode) */
+.darkmode .back-btn-wrap img{
+  filter: brightness(1.5) grayscale(1) invert(1);
+}
+
+/* Pokémon image container setup */
+.detail-img-wrapper {
+  width: 225px;
+  height: 225px;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+}
+
+/* Pokémon image fitting */
+.detail-img-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+/* detail card setup */
+.detail-card-detail-wrapper {
+  border-radius: 10px;
+  background-color: var(--grayscale-white);
+  box-shadow: var(--drop-shadow-inner);
+  padding: 55px 20px 20px 20px;
+  margin-top: -60px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+
+/* ability bubble positioning */
+.power-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 5px;
+}
+
+/* ability bubble customization (light-mode) */
+.power-wrapper > p {
+  border-radius: 15px;
+  padding: 5px 15px;
+  font-weight: var(--font-weight-bold);
+  color: var(--grayscale-white);
+  text-transform: capitalize;
+  background-color: var(--light-type-color);
+}
+
+/* ability bubble customization (dark-mode) */
+.darkmode .power-wrapper > p {
+  background-color: var(--dark-type-color);
+}
+
+/* Pokémon move text customization */
+.pokemon-detail-move p {
+  text-transform: capitalize;
+  word-break: break-all;
+}
+
+/* Pokémon About text customization (light-mode) */
+.detail-card-detail-wrapper .about-text {
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}
+
+/* Pokémon About text customization (dark-mode) */
+.darkmode .detail-card-detail-wrapper .about-text {
+  color: var(--grayscale-dark);
+}
+
+/* Pokémon About details box layout */
+.pokemon-detail-wrapper {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Pokémon About detail placement */
+.pokemon-detail-wrapper .pokemon-detail-wrap {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  
+  /* make child a flex container to push contents to bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/* line separator for Pokémon About details */
+.pokemon-detail-wrap:before {
+  content: "";
+  background-color: var(--grayscale-light);
+  width: 2px;
+  position: absolute;
+  right: 0;
+  top: 0px;
+  bottom: 0;
+  margin: auto;
+}
+
+/* no line separator for last Pokémon About detail */
+.pokemon-detail-wrap:last-child::before {
+  display: none;
+}
+
+/* individual About detail customization */
+.pokemon-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  gap: 8px;
+}
+
+/* set min height for Pokémon About details section */
+.pokemon-detail-wrapper {
+  min-height: 80px;
+}
+
+/* Pokémon move section placement */
+.pokemon-detail-move {
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  padding: 8px 5px;
+}
+
+/* Pokémon details text customization (dark-mode) */
+.darkmode .pokemon-detail .body3-fonts, .darkmode .pokemon-detail-move{
+  color: var(--grayscale-dark);
+}
+
+/* Pokémon details label text customization (light-mode) */
+.pokemon-detail-wrap > .body3-fonts {
+  color: var(--grayscale-medium);
+}
+
+/* Pokémon details label text customization (dark-mode) */
+.darkmode .pokemon-detail-wrap > .body3-fonts {
+  color: var(--grayscale-dark);
+}
+
+/* dumbbell image for Pokémon weight (light-mode) */
+.pokemon-detail-wrap .enlarge {
+  height: 50%;
+}
+
+/* dumbbell image for Pokémon weight (dark-mode) */
+.darkmode .pokemon-detail-wrap .enlarge {
+  filter: brightness(1) grayscale(1) invert(1);
+}
+
+/* ruler image for Pokémon height (light-mode) */
+.pokemon-detail-wrap .straighten {
+  transform: rotate(90deg);
+  height: 50%;
+}
+
+/* ruler image for Pokémon height (dark-mode) */
+.darkmode .pokemon-detail-wrap .straighten {
+  filter: brightness(1) grayscale(1) invert(1);
+}
+
+/* Pokémon description text customization */
+.detail-card-detail-wrapper .pokemon-description {
+  color: var(--grayscale-dark);
+  text-align: center;
+}
+
+/* stat layout */
+.stats-wrap {
+  display: flex;
+  align-items: center;
+}
+
+/* stats section customization (value and progress bar) */
+.stats-wrap p {
+  color: var(--grayscale-dark);
+  margin-right: 15px;
+  min-width: 15px;
+}
+
+/* stats section customization (stat type; light-mode) */
+.stats-wrap p.stats {
+  text-align: left;
+  padding-right: 0px;
+  margin-right: 15px;
+  min-width: 35px;
+  border-right: 2px solid var(--grayscale-light);
+  font-weight: var(--font-weight-bold);
+  color: var(--light-type-color);
+}
+
+/* stats section customization (stat type; dark-mode) */
+.darkmode .stats-wrap p.stats {
+  color: var(--dark-type-color);
+}
+
+/* progress bar customization (light-mode) */
+.stats-wrap .progress-bar {
+  flex: 1;
+  border-radius: 5px;
+  height: 10px;
+  color: var(--light-type-color);
+}
+
+/* progress bar customization (dark-mode) */
+.darkmode .stats-wrap .progress-bar {
+  color: var(--dark-type-color);
+}
+
+/* empty part of progress bar (light-mode) */
+.stats-wrap .progress-bar::-webkit-progress-bar {
+  background-color: rgba(var(--light-rgba-type-color), 0.5);
+  border-radius: 5px;
+}
+
+/* empty part of progress bar (dark-mode) */
+.darkmode .stats-wrap .progress-bar::-webkit-progress-bar {
+  background-color: rgba(var(--dark-rgba-type-color), 0.5);
+}
+
+/* filled part of progress bar (light-mode) */
+.stats-wrap .progress-bar::-webkit-progress-value {
+  border-radius: 5px;
+  background-color: var(--light-type-color);
+}
+
+/* filled part of progress bar (dark-mode) */
+.darkmode .stats-wrap .progress-bar::-webkit-progress-value {
+  background-color: var(--dark-type-color);
+}
+
+/* Pokéball image placement */
+.detail-bg {
+  position: absolute;
+  z-index: 1;
+  right: 30px;
+  top: 10px;
+  opacity: 0.2;
+}
+
+/* Pokémon image color */
+.detail-bg path {
+  fill: var(--grayscale-white);
+}
+
+/* dark/light mode button placement (light-mode) */
+.detail-main .theme-switch {
+  background-color: var(--light-darkened-type-color);
+  border: #000000;
+  border-radius: 100%;
+  box-shadow: var(--drop-shadow-inner);
+  position: absolute;
+  z-index: 5;
+  right: 115px;
+  top: 96px;
+  cursor: pointer;
+}
+
+/* dark/light mode button placement (dark-mode) */
+.darkmode .detail-main .theme-switch {
+  background-color: var(--dark-darkened-type-color);
+}
+
+/* not found message */
+div#not-found-message {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+  font-weight: 600;
+  color: var(--grayscale-dark);
+}
+
+/* left and right arrows (light-mode) */
+.arrow img {
+  filter: brightness(0) grayscale(1) invert(1);
+  width: 50px;
+}
+
+/* left and right arrows (dark-mode) */
+.darkmode .arrow img {
+  filter: brightness(1.5) grayscale(1) invert(0);
+}
+
+/* featured image placement */
+.featured-img {
+  position: relative;
+}
+
+/* navigation arrows placement */
+.featured-img a.arrow {
+  display: inline-block;
+  position: absolute;
+  top: 15%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+/* left arrow */
+.featured-img a.arrow.left-arrow {
+  left: 3rem;
+}
+
+/* right arrow */
+.featured-img a.arrow.right-arrow {
+  right: 3rem;
+}
+
+/* main window (light-mode) */
+.detail-main.main {
+  height: max-content;
+  border-color: var(--light-type-color);
+  background-color: var(--light-type-color);
+}
+
+/* main window (dark-mode) */
+.darkmode .detail-main.main {
+  border-color: var(--dark-type-color);
+  background-color: var(--dark-type-color);
+}
